@@ -11,7 +11,7 @@ const Page = ({
 }: {
   params: { meetingId: string; userId: string };
 }) => {
-  <Meeting params={params} />;
+  return <Meeting params={params} />;
 };
 
 export default Page;
