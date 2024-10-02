@@ -2,7 +2,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import io, { Socket } from "socket.io-client";
 import { useParams } from "next/navigation";
-
+export async function generateStaticParams() {
+  return {};
+}
 const Meeting = () => {
   const params = useParams();
   const meetingId = params.meetingId;
