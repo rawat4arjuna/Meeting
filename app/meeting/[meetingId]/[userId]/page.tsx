@@ -1,12 +1,10 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import io, { Socket } from "socket.io-client";
+import { useParams } from "next/navigation";
 
-const Meeting = ({
-  params,
-}: {
-  params: { meetingId: string; userId: string };
-}) => {
+const Meeting = () => {
+  const params = useParams();
   const meetingId = params.meetingId;
   const userId = params.userId; // Replace with your actual user ID logic
 
