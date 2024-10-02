@@ -9,8 +9,12 @@ const CreateMeeting: React.FC = () => {
   const createMeeting = async () => {
     try {
       const response = await axios.get("http://localhost:3001/create-meeting");
+      const res = await axios.get("http://localhost:3001/create-user");
       const meetingId = response.data.meetingId;
-      router.push(`/meeting/${meetingId}`);
+
+      localStorage.setItem("meetingId", meetingId);
+      localStorage.setItem("userId", res.data.userId);
+      router.push(`/meeting/${meetingId}/${res.data.userId}`);
     } catch (error) {
       console.error("Error creating meeting:", error);
     }

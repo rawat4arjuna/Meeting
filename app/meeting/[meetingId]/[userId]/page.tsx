@@ -1,12 +1,15 @@
-"use client";
 import React, { useEffect, useRef, useState } from "react";
 import io, { Socket } from "socket.io-client";
-import { useParams } from "next/navigation";
 export async function generateStaticParams() {
-  return {};
+  const meetingId = await localStorage.getItem("meetingId");
+  const userId = await localStorage.getItem("userid");
+  return { meetingId, userId };
 }
-const Meeting = () => {
-  const params = useParams();
+const Meeting = ({
+  params,
+}: {
+  params: { meetingId: string; userId: string };
+}) => {
   const meetingId = params.meetingId;
   const userId = params.userId; // Replace with your actual user ID logic
 
